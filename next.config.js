@@ -29,12 +29,7 @@ const nextConfig = {
     ],
   },
 
-  webpack(config, { dev, isServer }) {
-    // 禁用生产环境缓存（解决EdgeOne文件大小限制）
-    if (!dev) {
-      config.cache = false;
-    }
-
+  webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.('.svg')
